@@ -1,12 +1,12 @@
 import React from "react";
-
-import Calculator from "./pages/Calculator";
+import { BrowserRouter } from "react-router-dom";
+import CalculatorRoutes from "./components/CalculatorRoutes";
 
 function App() {
   return (
-    <>
-      <Calculator />
-    </>
+    <BrowserRouter>
+      <CalculatorRoutes />
+    </BrowserRouter>
   );
 }
 

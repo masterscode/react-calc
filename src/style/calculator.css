@@ -50,3 +50,21 @@
 .calculator__key:active {
   box-shadow: none;
 }
+
+
+a{
+  text-decoration: none;
+  color: darkslategray;
+  font-weight: bolder;
+  border: thin solid whitesmoke;
+  padding: 5px 15px;
+  display: inline-block;
+  margin: 5px ;
+  transition: all ease-in .35s;
+}
+
+a:hover{
+  background-color: darkslategray;
+  color: whitesmoke;
+
+}

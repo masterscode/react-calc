@@ -3,10 +3,11 @@ import DisplayBox from "../components/DisplayBox";
 import CalculatorKey from "../components/CalculatorKey";
 
 import "../style/calculator.css";
+import Navs from "../components/Nav";
 
 const Calculator = () => {
   const [result, setResult] = React.useState("");
-  const [operations, setOperations] = React.useState("0");
+  const [operations, setOperations] = React.useState("");
 
   const numberKeys = [...Array(10).keys(), "+", "-", "*", "/"];
 
@@ -34,6 +35,7 @@ const Calculator = () => {
 
   return (
     <section className="calculator">
+      <Navs />
       <DisplayBox value={operations} />
       <DisplayBox value={result} rightAlign />
 
