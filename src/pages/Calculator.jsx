@@ -9,7 +9,7 @@ const Calculator = () => {
   const [result, setResult] = React.useState("");
   const [operations, setOperations] = React.useState("");
 
-  const numberKeys = [...Array(10).keys(), "+", "-", "*", "/"];
+  const numberKeys = [...Array(10).keys(),'(', ')',  "+", "-", "*", "/"];
 
   const handleKeyClick = (label) => {
     setOperations((operations) => operations.concat(label));
@@ -25,11 +25,29 @@ const Calculator = () => {
     setResult(result => eval(operations));
   };
 
-  const handleClear = () => {};
+  const handleClear = () => {
+    setOperations(operations => '');
+    setResult(result => '');
+  };
+  
+
+  const doSquareRoot = ()=>{
+    const splitOps = operations.replace(/\D/g,',').split(',');
+
+    
+    const rearValue = parseInt(splitOps[splitOps.length - 1]);
+
+    const sqr = Math.pow(rearValue, 2);
+
+    const newOps = operations.replace(new RegExp(rearValue+"([^"+rearValue+"]*)$"), sqr+"$1")
+
+    setOperations(operations => newOps);
+  }
 
   const operators = [
     { label: "Del", fn: handleDelete },
     { label: "=", fn: handleEquals },
+    {label: 'sqr', fn:doSquareRoot},
     { label: "Clr", fn: handleClear },
   ];
 
