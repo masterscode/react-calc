@@ -38,10 +38,11 @@ const Calculator = () => {
     const rearValue = parseInt(splitOps[splitOps.length - 1]);
 
     const sqr = Math.pow(rearValue, 2);
+    const rearIndex = operations.lastIndexOf(rearValue);
+    const ops = operations.substring(0, rearIndex).concat(sqr);
+    const newOps = operations.replace(new RegExp(rearValue+"([^"+rearValue+"]*)$"), sqr+"$1");
 
-    const newOps = operations.replace(new RegExp(rearValue+"([^"+rearValue+"]*)$"), sqr+"$1")
-
-    setOperations(operations => newOps);
+    setOperations(operations => ops);
   }
 
   const operators = [
